@@ -1,6 +1,6 @@
 package arrayTrain.day1;
 
-public class Largest {
+public class    Largest {
 
     public static void main(String[] args) {
         int[] arr={33,20,968,32,13,84,25,97,64};
