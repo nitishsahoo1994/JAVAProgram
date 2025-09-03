@@ -1,7 +1,6 @@
 package arrayTrain.day4;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class LongestSubArray {
 
