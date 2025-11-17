@@ -7,62 +7,37 @@ public class AnagramProgram
 {
     static void isAnagram(String s1, String s2)
     {
-        //Removing white spaces from s1 and s2 and changing case to lower
+        String copyOfS1=s1.replaceAll("\\s","").toLowerCase();
+        String copyOfS2=s2.replaceAll("\\s","").toLowerCase();
+        boolean status=true;
 
-        String copyOfs1 = s1.replaceAll("\\s", "").toLowerCase();
+        if(copyOfS1.length()!=copyOfS2.length())
+            status=false;
 
-        String copyOfs2 = s2.replaceAll("\\s", "").toLowerCase();
-
-        //Initially setting status as true
-
-        boolean status = true;
-
-        if(copyOfs1.length() != copyOfs2.length())
-        {
-            //Setting status as false if copyOfs1 and copyOfs2 doesn't have same length
-
-            status = false;
-        }
-        else
-        {
-            //Converting copyOfs1 to char array
-
-            char[] s1ToArray = copyOfs1.toCharArray();
-
-            //Checking whether each character of s1ToArray is present in copyOfs2
-
-            for (char c : s1ToArray)
-            {
-                int index = copyOfs2.indexOf(c);
-
-                if(index != -1)
-                {
-                    //If character is present in copyOfs2, removing that char from copyOfs2
-
-                    copyOfs2 = copyOfs2.substring(0, index)+copyOfs2.substring(index+1);
+        else{
+            for (char c:copyOfS1.toCharArray()){
+                int index=copyOfS2.indexOf(c);
+                if(index!=-1){
+                    copyOfS2=copyOfS2.substring(0,index)+copyOfS2.substring(index+1);
                 }
-                else
-                {
-                    //If character is not present in copyOfs2, setting status as false and breaking the loop
-
-                    status = false;
-
+                else{
+                    status=false;
                     break;
                 }
             }
         }
 
-        //Output
-
-        if(status)
-        {
-            System.out.println(s1+" and "+s2+" are anagrams");
+        if(status){
+            System.out.println(s1+" and "+s2+" both are anagram");
         }
         else
-        {
-            System.out.println(s1+" and "+s2+" are not anagrams");
-        }
+            System.out.println(s1+" and "+s2+" both are not anagram");
+
     }
+
+
+
+
 
     public static void main(String[] args)
     {
