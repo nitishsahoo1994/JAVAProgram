@@ -24,13 +24,15 @@ public class LongestSubArray {
             }
 
             //keep all sum in prefixMap if not visible
-            prefixMap.putIfAbsent(sum,i);
+                prefixMap.putIfAbsent(sum,i);
+
+
         }
         return maxLen;
     }
 
     public static void main(String[] args) {
-        int[] array={10,5,2,7,19};
+        int[] array={10,0,5,2,7,1,9};
         int length=longestSubarray(array,15);
         System.out.printf("length is:"+length);
     }
